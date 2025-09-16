@@ -17,9 +17,9 @@ const ProductCard = ({ product }) => {
 
         <div className={classes.rating}>
           {/* rating */}
-          <Rating valu={rating.rate} precision={0.1} />
+          <Rating valu={rating?.rate} precision={0.1} />
           {/* count */}
-          <small>{rating.count}</small>
+          <small>{rating?.count}</small>
         </div>
         <div>
           {/* price */}
