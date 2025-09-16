@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import classes from "./Header.module.css";
 import { SlLocationPin } from "react-icons/sl";
 import { BsSearch } from "react-icons/bs";
@@ -6,7 +7,6 @@ import LowerHeader from "./LowerHeader";
 // import { BiCart } from "react-icons/bi";
 
 import { LiaCartArrowDownSolid } from "react-icons/lia";
-// import {Link} from "react-router"
 
 const Header = () => {
   return (
@@ -15,12 +15,12 @@ const Header = () => {
         <section className={classes.header__container}>
           <div className={classes.logo__container}>
             {/* logo  */}
-            <a href="#">
+            <Link to="/">
               <img
                 src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
                 alt="amazon logo"
               />
-            </a>
+            </Link>
             {/* delivery */}
             <div className={classes.delivery}>
               <span>
@@ -66,22 +66,21 @@ const Header = () => {
                 <span>Account & Lists</span>
               </a>
 
-              <a href="">
+              <Link to="/orders">
                 <p>Returns</p>
                 <span>& Orders</span>
-              </a>
+              </Link>
 
               {/* cart */}
-              <a href="/cart" className={classes.cart}>
+              <Link to="/cart" className={classes.cart}>
                 {/* icon */}
                 <LiaCartArrowDownSolid size={35} />
 
                 <span>0</span>
-              </a>
+              </Link>
             </div>
           </div>
         </section>
-        
       </section>
 
       <LowerHeader />
