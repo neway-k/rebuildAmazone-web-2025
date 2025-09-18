@@ -8,15 +8,19 @@ import LowerHeader from "./LowerHeader";
 
 import { LiaCartArrowDownSolid } from "react-icons/lia";
 import { DataContext } from "../DataProvider/DataProvider";
+
 // const value = useContext(DataContext);
 const Header = () => {
   // Get state and dispatch from context
-  const [{ basket }] = useContext(DataContext);
+  const [{ basket }, dispatch] = useContext(DataContext);
+  const totalItem = basket?.reduce((amount, item) => {
+    return item.amount + amount;
+  }, 0);
 
   console.log(basket);
 
   return (
-    <>
+    <section className={classes.fixed}>
       <section>
         <section className={classes.header__container}>
           <div className={classes.logo__container}>
@@ -83,7 +87,7 @@ const Header = () => {
                 {/* icon */}
                 <LiaCartArrowDownSolid size={35} />
 
-                <span>{basket?.length}</span>
+                <span>{totalItem}</span>
               </Link>
             </div>
           </div>
@@ -91,7 +95,7 @@ const Header = () => {
       </section>
 
       <LowerHeader />
-    </>
+    </section>
   );
 };
 

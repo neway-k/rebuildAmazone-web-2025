@@ -34,13 +34,17 @@ const ProductDetail = () => {
       ) : (
         <div>
           {product && product.id ? (
-            <ProductCard product={product} flex={true} 
-            renderDesc={true}/>
+            <ProductCard
+              product={product}
+              flex={true}
+              renderDesc={true}
+              renderAdd={true}
+            />
           ) : (
             <p>Loading product...</p>
           )}
         </div>
-      )} 
+      )}
     </LayOut>
   ); 
 };
