@@ -8,15 +8,16 @@ const Product = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
+    setIsLoading(true); // start loading before API call
     axios
       .get("https://fakestoreapi.com/products")
       .then((res) => {
         setProducts(res.data);
-        isLoading(false);
+        setIsLoading(false); // ✅ use setter
       })
       .catch((err) => {
         console.log(err);
-        isLoading(false);
+        setIsLoading(false);
       });
   }, []);
   return (

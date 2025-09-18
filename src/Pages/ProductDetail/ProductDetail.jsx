@@ -34,14 +34,15 @@ const ProductDetail = () => {
       ) : (
         <div>
           {product && product.id ? (
-            <ProductCard product={product} />
+            <ProductCard product={product} flex={true} 
+            renderDesc={true}/>
           ) : (
             <p>Loading product...</p>
           )}
         </div>
-      )}
+      )} 
     </LayOut>
-  );
+  ); 
 };
 
 export default ProductDetail;

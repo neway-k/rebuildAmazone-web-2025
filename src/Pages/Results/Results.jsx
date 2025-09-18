@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { productUrl } from "../../Api/endPoints";
 import ProductCard from "../../Components/Product/ProductCard";
-import Loader from "../Loader/Loader";
+import Loader from "../../Components/Loader/Loader";
 
 const Results = () => {
   const [results, setResults] = useState([]);
@@ -13,15 +13,17 @@ const Results = () => {
   const { categoryName } = useParams();
 
   useEffect(() => {
+    setIsLoading(true); // start loading before API call
+
     axios
       .get(`${productUrl}/products/category/${categoryName}`)
       .then((res) => {
         setResults(res.data);
-        isLoading(false);
+        setIsLoading(false);
       })
       .catch((err) => {
         console.log(err);
-        isLoading(false);
+        setIsLoading(false);
       });
   }, []);
 

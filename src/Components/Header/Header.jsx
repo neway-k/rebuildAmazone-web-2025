@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import classes from "./Header.module.css";
 import { SlLocationPin } from "react-icons/sl";
@@ -7,8 +7,14 @@ import LowerHeader from "./LowerHeader";
 // import { BiCart } from "react-icons/bi";
 
 import { LiaCartArrowDownSolid } from "react-icons/lia";
-
+import { DataContext } from "../DataProvider/DataProvider";
+// const value = useContext(DataContext);
 const Header = () => {
+  // Get state and dispatch from context
+  const [{ basket }] = useContext(DataContext);
+
+  console.log(basket);
+
   return (
     <>
       <section>
@@ -43,8 +49,9 @@ const Header = () => {
             <input type="text" placeholder="search product" />
 
             {/* icon */}
-            <button className={classes.searchButton}></button>
-            <BsSearch size={25} />
+            <button className={classes.searchButton}>
+              <BsSearch size={25} />
+            </button>
           </div>
 
           {/* right side link */}
@@ -61,10 +68,10 @@ const Header = () => {
                   <option value="">EN</option>
                 </select>
               </a>
-              <a href="">
+              <Link to="/SignIn">
                 <p> Hello, Sign In</p>
                 <span>Account & Lists</span>
-              </a>
+              </Link>
 
               <Link to="/orders">
                 <p>Returns</p>
@@ -76,7 +83,7 @@ const Header = () => {
                 {/* icon */}
                 <LiaCartArrowDownSolid size={35} />
 
-                <span>0</span>
+                <span>{basket?.length}</span>
               </Link>
             </div>
           </div>
