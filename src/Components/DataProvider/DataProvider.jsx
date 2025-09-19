@@ -8,7 +8,7 @@ export const DataContext = createContext();
 // Provider component
 
 export const DataProvider = ({ children, reducer, initialState }) => {
-  // const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
     <DataContext.Provider value={useReducer(reducer, initialState)}>
