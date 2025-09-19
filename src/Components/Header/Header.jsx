@@ -72,7 +72,7 @@ const Header = () => {
                   <option value="">EN</option>
                 </select>
               </a>
-              <Link to="/SignIn">
+              <Link to="/Sign In">
                 <p> Hello, Sign In</p>
                 <span>Account & Lists</span>
               </Link>

@@ -10,10 +10,10 @@ import ProductDetail from "./Pages/ProductDetail/ProductDetail";
 
 const Routing = () => {
   return (
-    <Router>
+    <Router basename="/rebuildAmazone-web-2025">
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/auth" element={<Signup />} />
+        <Route path="/Sign In" element={<Signup />} />
         <Route path="/payments" element={<Payment />} />
         <Route path="/orders" element={<Orders />} />
         <Route path="/category/:categoryName" element={<Results />} />

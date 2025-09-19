@@ -4,7 +4,7 @@ import LayOut from "../../Components/LayOut/LayOut";
 const Signup = () => {
   return (
     <LayOut>
-      <div>Signup</div>
+      <div>Sign In</div>
     </LayOut>
   );
 };
