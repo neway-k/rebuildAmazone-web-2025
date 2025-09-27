@@ -9,6 +9,8 @@
   object-fit: contain;
   max-height: 250px;
   padding: 0px 10px;
+  position: relative;
+  overflow: hidden; /* ✅ clip anything that tries to overflow */
 }
 .category a {
   text-decoration: none;
@@ -29,6 +31,10 @@
   position: relative;
   margin-top: -120px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  max-width: 1600px;
+  gap: 50px;
+  margin-right: auto;
+  margin-left: auto;
   place-items: center;
 }

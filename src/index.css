@@ -2,8 +2,12 @@
   padding: 0;
   margin: 0;
   font-family: sans-serif;
+  box-sizing: border-box;
 }
 :root {
   --primary-color: #febd69;
   --primary-shade: #d49644;
+  --header-h: 70px;
+  --subnav-h: 42px;
+  --page-bg: #e3e6e6;
 }

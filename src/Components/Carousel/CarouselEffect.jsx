@@ -50,7 +50,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const CarouselEffect = () => {
   return (
-    <div>
+    <div className={classes.hero}>
       <Carousel
         autoPlay={true}
         infiniteLoop={true}
@@ -58,7 +58,7 @@ const CarouselEffect = () => {
         showThumbs={false}
       >
         {img.map((imageItemLink) => {
-          return <img src={imageItemLink} />;
+          return <img key={imageItemLink} src={imageItemLink} />;
         })}
       </Carousel>
       <div className={classes.hero__img}></div>

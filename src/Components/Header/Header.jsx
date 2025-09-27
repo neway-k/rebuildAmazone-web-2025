@@ -8,11 +8,12 @@ import LowerHeader from "./LowerHeader";
 
 import { LiaCartArrowDownSolid } from "react-icons/lia";
 import { DataContext } from "../DataProvider/DataProvider";
+import { auth } from "../../Utility/firebase";
 
 // const value = useContext(DataContext);
 const Header = () => {
   // Get state and dispatch from context
-  const [{ basket }, dispatch] = useContext(DataContext);
+  const [{ user, basket }, dispatch] = useContext(DataContext);
   const totalItem = basket?.reduce((amount, item) => {
     return item.amount + amount;
   }, 0);
@@ -25,7 +26,7 @@ const Header = () => {
         <section className={classes.header__container}>
           <div className={classes.logo__container}>
             {/* logo  */}
-            <Link to="/">
+            <Link>
               <img
                 src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
                 alt="amazon logo"
@@ -46,15 +47,19 @@ const Header = () => {
           </div>
           <div className={classes.search}>
             {/* search */}
-            <select name="" id="">
-              <option value="">All</option>
+            <select defaultValue="ALL">
+              <option>All</option>
             </select>
 
             <input type="text" placeholder="search product" />
 
             {/* icon */}
-            <button className={classes.searchButton}>
-              <BsSearch size={25} />
+            <button
+              type="submit"
+              className={classes.searchButton}
+              aria-label="Search"
+            >
+              <BsSearch />
             </button>
           </div>
 
@@ -62,7 +67,7 @@ const Header = () => {
 
           <div>
             <div className={classes.order__container}>
-              <a href="" className={classes.language}>
+              <Link to="" className={classes.language}>
                 <img
                   src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1024px-Flag_of_the_United_States.svg.png"
                   alt="US flag"
@@ -71,10 +76,21 @@ const Header = () => {
                 <select>
                   <option value="">EN</option>
                 </select>
-              </a>
-              <Link to="/Sign In">
-                <p> Hello, Sign In</p>
-                <span>Account & Lists</span>
+              </Link>
+              <Link to={!user && "/auth"}>
+                <div>
+                  {user ? (
+                    <>
+                      <p>Hello, {user?.email?.split("@")[0]}</p>
+                      <span onClick={() => auth.signOut()}>Sign Out</span>
+                    </>
+                  ) : (
+                    <>
+                      <p>Hello, Sign In</p>
+                      <span>Account & Lists</span>
+                    </>
+                  )}
+                </div>
               </Link>
 
               <Link to="/orders">
