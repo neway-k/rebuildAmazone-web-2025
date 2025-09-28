@@ -1,16 +1,18 @@
 .category {
-  height: 350px;
-  width: 350px;
+  height: 310px;
+  width: 300px;
   background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+  margin-left: 10px;
 }
 .category img {
   width: 100%;
   object-fit: contain;
-  max-height: 250px;
+  max-height: 200px;
   padding: 0px 10px;
-  position: relative;
-  overflow: hidden; /* ✅ clip anything that tries to overflow */
+  /* position: relative;
+  overflow: hidden;  */
 }
 .category a {
   text-decoration: none;
@@ -19,21 +21,28 @@
 .category h2,
 .category p {
   padding: 5px;
+  /* margin-left: 15px; */
   margin-left: 15px;
 }
 
 .category p {
+  /* color: #565959; */
+  color: rgb(9, 132, 209);
   font-size: 12px;
   font-weight: bold;
-  color: rgb(9, 132, 209);
+}
+.category:hover {
+  box-shadow: 0 4px 14px 0 rgba(213, 217, 217, 0.25);
+  border-color: #e77600;
+  cursor: pointer;
 }
 .Category__container {
   position: relative;
-  margin-top: -120px;
+  margin-top: -10%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   max-width: 1600px;
-  gap: 50px;
+  gap: 30px;
   margin-right: auto;
   margin-left: auto;
   place-items: center;
